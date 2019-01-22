@@ -4,16 +4,23 @@ public class FirstJavaProgram {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please Enter number of minutes:");
-		long x = sc.nextLong();
+		System.out.println("Please Enter multiple inputs of minutes separated by comma or space :");
+		String input = sc.nextLine();
 		
+		
+		String a[] = input.split("[, ]+");
+		for (String temp : a)
+		{
+		int x = Integer.parseInt(temp);
 		int years = (int)(x/525600);
 		int days = (int)(x%525600)/1440;
-		int mins =(int)(x%525600)%1440;
+		int hours = (int)((x%525600)%1440)/60;
+		int mins =(int)((x%525600)%1440)%60;
 		
-		System.out.println("Number of Years : " + years);
-		System.out.println("Number of days : " + days);
-		System.out.println("Number of minutes : " + mins);
-	}
+		System.out.println(x+" minutes = "+ years + " years, " + days + " days, "
+		+hours +" hours, "+ mins +" mins");
+		}
+		
 
+     }
 }
